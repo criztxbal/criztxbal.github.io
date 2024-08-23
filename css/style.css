@@ -3,14 +3,19 @@
 body {
   background: url(https://subtlepatterns.com/patterns/noise_lines.png);
   font-family: 'Amatic SC', cursive;
-  overflow: hidden;
+  overflow: hidden; /* Evita el desplazamiento del contenedor */
   color: #fff;
+  margin: 0; /* Elimina el margen predeterminado del body */
+  height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bgoverlay {
   background: #fff;
   position: absolute;
-  top: 200px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -18,22 +23,23 @@ body {
 
 .container {
   position: relative;
-  width: 90%;
-  max-width: 320px;
-  margin: 120px auto 0 auto;
+  width: 320px; /* Ajusta el tamaño según sea necesario */
+  height: 320px; /* Ajusta el tamaño según sea necesario */
   text-align: center;
-  overflow: hidden; /* Evita que el corazón salga del contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evita el desbordamiento */
 }
 
 .ico {
-  display: block;
+  position: absolute;
   width: 100%;
   height: auto;
-  position: relative;
 }
 
 .open .ico {
-  animation: open 4s;
+  animation: open 4s forwards;
 }
 
 .ico .title {
@@ -46,12 +52,11 @@ body {
   color: #fff;
   cursor: pointer;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
 }
 
 .open .ico .title {
   opacity: 0;
-  transition: all 0.3s ease;
-  top: -100px;
 }
 
 .ico:before,
@@ -68,7 +73,7 @@ body {
 }
 
 .ico:after {
-  animation: explode 4s infinite;
+  animation: explode 4s forwards;
 }
 
 .ico2:before,
@@ -77,11 +82,11 @@ body {
 }
 
 .ico2:before {
-  animation: explodeSmall 3s infinite;
+  animation: explodeSmall 3s forwards;
 }
 
 .ico2:after {
-  animation: explodeSmall 2s infinite;
+  animation: explodeSmall 2s forwards;
 }
 
 .endtext {
@@ -89,12 +94,14 @@ body {
   position: absolute;
   top: -100px;
   width: 100%;
+  color: #fff;
 }
 
 .open .endtext {
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 1;
-  animation: show 5s;
+  animation: show 5s forwards;
 }
 
 .endtext .close {
@@ -111,18 +118,19 @@ body {
   text-shadow: 2px 4px 3px rgba(224, 67, 140, 0.37);
   text-align: center;
   font-weight: normal;
+  margin: 0; /* Elimina márgenes para centrar mejor */
 }
 
 .endtext h1 {
-  font-size: 50px;
+  font-size: 80px; /* Aumenta el tamaño según sea necesario */
 }
 
 .endtext h2 {
-  font-size: 30px;
+  font-size: 50px; /* Aumenta el tamaño según sea necesario */
 }
 
 .endtext h3 {
-  font-size: 20px;
+  font-size: 30px; /* Aumenta el tamaño según sea necesario */
 }
 
 @keyframes explode {
@@ -131,7 +139,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.6); /* Escala visual sin afectar el tamaño del contenedor */
+    transform: scale(1.6); /* Mantén la escala visual */
     opacity: 0;
   }
 }
@@ -142,7 +150,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.2); /* Escala visual sin afectar el tamaño del contenedor */
+    transform: scale(1.2); /* Mantén la escala visual */
     opacity: 0;
   }
 }
@@ -152,7 +160,8 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(3); /* Escala visual sin afectar el tamaño del contenedor */
+    transform: scale(3); /* Mantén la escala visual */
+    background-color: #e97fce; /* Cambia el fondo a rosa */
   }
 }
 
@@ -163,14 +172,15 @@ body {
   }
   to {
     opacity: 1;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
 @media (max-width: 768px) {
   .container {
     width: 90%;
-    margin: 60px auto;
+    height: auto; /* Ajusta la altura según sea necesario */
   }
 
   .ico .title {
