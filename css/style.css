@@ -22,17 +22,18 @@ body {
   max-width: 320px;
   margin: 120px auto 0 auto;
   text-align: center;
+  overflow: hidden; /* Evita que el corazón salga del contenedor */
 }
 
 .ico {
   display: block;
   width: 100%;
   height: auto;
+  position: relative;
 }
 
 .open .ico {
   animation: open 4s;
-  transform: scale(3); /* Ajustar escala según necesidad */
 }
 
 .ico .title {
@@ -56,12 +57,14 @@ body {
 .ico:before,
 .ico:after {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 20em;
   color: #e97fce;
   content: "\f004";
   font-family: FontAwesome;
+  z-index: 3;
 }
 
 .ico:after {
@@ -128,7 +131,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.6);
+    transform: scale(1.6); /* Escala visual sin afectar el tamaño del contenedor */
     opacity: 0;
   }
 }
@@ -139,7 +142,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Escala visual sin afectar el tamaño del contenedor */
     opacity: 0;
   }
 }
@@ -149,7 +152,7 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(3); /* Ajustar escala según necesidad */
+    transform: scale(3); /* Escala visual sin afectar el tamaño del contenedor */
   }
 }
 
