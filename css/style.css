@@ -23,8 +23,8 @@ body {
 
 .container {
   position: relative;
-  width: 320px; /* Ajusta el tamaño según sea necesario */
-  height: 320px; /* Ajusta el tamaño según sea necesario */
+  width: 320px; /* Ajusta el tamaño base */
+  height: 320px; /* Ajusta el tamaño base */
   text-align: center;
   display: flex;
   align-items: center;
@@ -139,7 +139,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.6); /* Mantén la escala visual */
+    transform: scale(2); /* Mantén la escala visual */
     opacity: 0;
   }
 }
@@ -150,7 +150,7 @@ body {
     opacity: 1;
   }
   to {
-    transform: scale(1.2); /* Mantén la escala visual */
+    transform: scale(1.5); /* Mantén la escala visual */
     opacity: 0;
   }
 }
@@ -160,7 +160,7 @@ body {
     transform: scale(1);
   }
   to {
-    transform: scale(3); /* Mantén la escala visual */
+    transform: scale(5); /* Escala visual sin afectar el tamaño del contenedor */
     background-color: #e97fce; /* Cambia el fondo a rosa */
   }
 }
